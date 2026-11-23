@@ -1,0 +1,60 @@
+name: HeartLifesteal
+version: '${project.version}'
+main: id.heartlifesteal.HeartLifestealPlugin
+api-version: '1.21'
+description: Sistem heart permanen berbasis PvP (Lifesteal) dengan item Blood dan Relic of Life.
+author: HeartLifesteal
+website: ''
+
+commands:
+  heart:
+    description: Perintah utama Heart Lifesteal
+    usage: /heart [top|info|set|add|remove|revive|reset|reload|give|history|help]
+    aliases: [hearts]
+
+permissions:
+  heartlifesteal.use:
+    description: Melihat heart sendiri dan memakai item Blood / Relic of Life
+    default: true
+  heartlifesteal.top:
+    description: Melihat leaderboard heart (/heart top)
+    default: true
+  heartlifesteal.info:
+    description: Melihat heart pemain lain (/heart info)
+    default: true
+  heartlifesteal.admin.set:
+    description: /heart set
+    default: op
+  heartlifesteal.admin.add:
+    description: /heart add
+    default: op
+  heartlifesteal.admin.remove:
+    description: /heart remove
+    default: op
+  heartlifesteal.admin.revive:
+    description: /heart revive
+    default: op
+  heartlifesteal.admin.reset:
+    description: /heart reset
+    default: op
+  heartlifesteal.admin.reload:
+    description: /heart reload
+    default: op
+  heartlifesteal.admin.give:
+    description: /heart give
+    default: op
+  heartlifesteal.admin.history:
+    description: /heart history
+    default: op
+  heartlifesteal.admin:
+    description: Seluruh perintah admin Heart Lifesteal
+    default: op
+    children:
+      heartlifesteal.admin.set: true
+      heartlifesteal.admin.add: true
+      heartlifesteal.admin.remove: true
+      heartlifesteal.admin.revive: true
+      heartlifesteal.admin.reset: true
+      heartlifesteal.admin.reload: true
+      heartlifesteal.admin.give: true
+      heartlifesteal.admin.history: true

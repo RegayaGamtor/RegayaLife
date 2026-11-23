@@ -1,0 +1,85 @@
+# ======================================================================
+#  Heart Lifesteal - pesan (Bahasa Indonesia)
+#  Mendukung kode warna &, hex &#rrggbb, dan placeholder {nama}.
+#  Pesan yang dikosongkan ("") tidak akan dikirim.
+#  Jalankan /heart reload setelah mengubah file ini.
+# ======================================================================
+
+prefix: "&8[&c❤ Heart&8] &r"
+
+# --- Status (dipakai juga oleh HUD: %heart_status%) ---
+status-alive: "Hidup"
+status-critical: "Kritis"
+status-eliminated: "Tereliminasi"
+
+# --- Lifesteal ---
+blood-received: "&aKamu mendapatkan {amount} Blood!"
+blood-cooldown: "&eKamu baru saja mengalahkan &f{victim}&e. Blood belum diberikan, coba lagi dalam &f{seconds} detik&e."
+blood-blocked-ip: "&eBlood tidak diberikan karena kamu dan korban memakai IP yang sama."
+heart-decreased: "&cKamu kehilangan {amount} heart! &7(sisa {hearts}/{max})"
+eliminated: "&cKamu telah kehilangan seluruh heart-mu!"
+eliminated-broadcast: "&c☠ &f{player} &ckehabisan seluruh heart dan tereliminasi!"
+revived: "&aKamu telah dihidupkan kembali dengan {hearts} heart!"
+
+# --- Item ---
+heart-increased: "&aHeart-mu bertambah! &7({hearts}/{max})"
+relic-used: "&6&lRelic of Life &amemulihkan seluruh heart-mu! &7({hearts}/{max})"
+maximum-hearts: "&cHeart-mu sudah maksimal!"
+item-disabled: "&cItem ini sedang dinonaktifkan."
+item-received: "&aKamu menerima {amount}x {item}."
+
+# --- Umum ---
+no-permission: "&cKamu tidak punya izin untuk perintah ini."
+player-only: "&cPerintah ini hanya bisa dipakai oleh pemain."
+player-not-found: "&cPemain &f{player} &ctidak ditemukan di data."
+player-offline: "&cPemain &f{player} &ctidak sedang online."
+invalid-number: "&cAngka tidak valid: &f{value}"
+unknown-subcommand: "&cSubperintah tidak dikenal. Gunakan &f/heart help&c."
+reloaded: "&aKonfigurasi, pesan, dan resep berhasil dimuat ulang."
+
+# --- Perintah pemain ---
+own-hearts: "&7Heart kamu: &c❤ {hearts}&7/&f{max} &8| &7Status: &f{status}"
+info-hearts: "&7Heart &f{player}&7: &c❤ {hearts}&7/&f{max} &8| &7Status: &f{status}"
+top-empty: "&7Belum ada data pemain."
+top-header: "&6&l--- Leaderboard Heart (Top {size}) ---"
+top-line: "&e#{rank} &f{player} &8- &c❤ {hearts}&7/{max}"
+
+# --- Perintah admin ---
+usage-info: "&cPenggunaan: &f/heart info <pemain>"
+usage-set: "&cPenggunaan: &f/heart set <pemain> <jumlah>"
+usage-add: "&cPenggunaan: &f/heart add <pemain> <jumlah>"
+usage-remove: "&cPenggunaan: &f/heart remove <pemain> <jumlah>"
+usage-revive: "&cPenggunaan: &f/heart revive <pemain>"
+usage-reset: "&cPenggunaan: &f/heart reset <pemain>"
+usage-give: "&cPenggunaan: &f/heart give <pemain> <blood|relic> <jumlah>"
+usage-history: "&cPenggunaan: &f/heart history <pemain>"
+
+admin-heart-changed: "&aHeart &f{player} &adiubah dari &f{before} &amenjadi &c{hearts}&7/{max}&a."
+admin-eliminated: "&e{player} sekarang tereliminasi (heart 0)."
+admin-lifted-elimination: "&e{player} sebelumnya tereliminasi; statusnya dicabut karena heart di atas 0."
+heart-changed-by-admin: "&eHeart-mu diubah oleh admin menjadi &c{hearts}&7/{max}&e."
+revive-disabled: "&cFitur revive sedang dinonaktifkan di config."
+not-eliminated: "&e{player} tidak sedang tereliminasi."
+admin-revived: "&a{player} berhasil di-revive dengan {hearts} heart."
+admin-reset: "&aHeart &f{player} &adikembalikan ke default (&c{hearts}&a)."
+admin-given: "&aMemberikan {amount}x {item} kepada &f{player}&a."
+
+history-error: "&cGagal membaca riwayat eliminasi. Lihat console."
+history-empty: "&7{player} belum pernah tereliminasi."
+history-header: "&6&l--- Riwayat Eliminasi {player} ---"
+history-line: "&7{date} &8- &f{cause} &7(pembunuh: &f{killer}&7)"
+
+# --- Bantuan: format "teks|permission" (permission boleh dikosongkan) ---
+help-header: "&6&l--- Bantuan Heart Lifesteal ---"
+help-lines:
+  - "&e/heart &7- Lihat heart kamu|heartlifesteal.use"
+  - "&e/heart top &7- Leaderboard heart|heartlifesteal.top"
+  - "&e/heart info <pemain> &7- Lihat heart pemain lain|heartlifesteal.info"
+  - "&e/heart set <pemain> <jumlah> &7- Atur heart|heartlifesteal.admin.set"
+  - "&e/heart add <pemain> <jumlah> &7- Tambah heart|heartlifesteal.admin.add"
+  - "&e/heart remove <pemain> <jumlah> &7- Kurangi heart|heartlifesteal.admin.remove"
+  - "&e/heart revive <pemain> &7- Hidupkan kembali pemain|heartlifesteal.admin.revive"
+  - "&e/heart reset <pemain> &7- Kembalikan ke heart default|heartlifesteal.admin.reset"
+  - "&e/heart give <pemain> <blood|relic> <jumlah> &7- Beri item|heartlifesteal.admin.give"
+  - "&e/heart history <pemain> &7- Riwayat eliminasi|heartlifesteal.admin.history"
+  - "&e/heart reload &7- Muat ulang konfigurasi|heartlifesteal.admin.reload"

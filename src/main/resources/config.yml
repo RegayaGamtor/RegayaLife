@@ -1,0 +1,106 @@
+# ======================================================================
+#  Heart Lifesteal - konfigurasi utama
+#  Setelah mengubah file ini jalankan /heart reload
+#  (kecuali bagian "database": perlu restart server)
+#  Pesan ada di messages.yml, resep crafting ada di recipe.yml
+# ======================================================================
+
+settings:
+  default-hearts: 10          # heart pemain baru (1 heart = 2 HP)
+  maximum-hearts: 10          # batas maksimal heart
+  minimum-hearts: 0           # batas minimal; 0 = bisa tereliminasi
+  block-health-boost: true    # blokir potion Health Boost agar max HP tidak melewati batas heart
+  sync-interval: 200          # tick; cek ringan agar atribut max health tetap sesuai heart (0 = mati)
+                              # set 0 jika plugin RPG lain yang mengatur max health
+
+lifesteal:
+  enabled: true
+  hearts-lost-per-death: 1            # heart yang hilang tiap kematian
+  lose-heart-on-non-pvp-death: true   # true = mati karena apa pun mengurangi heart
+                                      # false = hanya mati karena pemain lain yang mengurangi heart
+  blood-per-kill: 1                   # jumlah Blood per pembunuhan
+  anti-farming:
+    enabled: true
+    cooldown: 300                     # detik; pembunuh tidak dapat Blood lagi dari korban yang sama selama ini
+    block-same-ip: false              # true = tidak ada Blood bila pembunuh dan korban satu IP
+
+blood:
+  enabled: true
+  material: REDSTONE
+  name: "&c&lBlood"
+  lore:
+    - "&7Darah dari pemain yang kamu kalahkan."
+    - ""
+    - "&eKlik kanan &7untuk menambah &c1 ❤ &7heart permanen."
+  custom-model-data: 0                # 0 = tidak dipakai (untuk resource pack lama)
+  item-model: ""                      # contoh: "heartlifesteal:blood" (resource pack 1.21.2+), kosong = default
+  glow: true
+  hearts-per-use: 1
+  consume-on-full-hearts: false       # false = Blood tidak terpakai bila heart sudah penuh
+  effects:
+    sound: "entity.player.levelup"    # kosong = tanpa suara
+    volume: 1.0
+    pitch: 1.3
+    particle: HEART                   # NONE = tanpa partikel
+    particle-count: 12
+    animation: true                   # animasi spiral partikel selama 1 detik
+
+relic-of-life:
+  enabled: true
+  material: NETHER_STAR
+  name: "&6&lRelic of Life"
+  lore:
+    - "&7Peninggalan kuno yang menyimpan kehidupan."
+    - ""
+    - "&eKlik kanan &7untuk memulihkan &cseluruh ❤ &7heart."
+  custom-model-data: 0
+  item-model: ""
+  glow: true
+  restore-to-maximum: true            # true = langsung penuh; false = tambah 'hearts-per-use'
+  hearts-per-use: 5                   # hanya dipakai bila restore-to-maximum: false
+  consume-on-full-hearts: false
+  effects:
+    sound: "item.totem.use"
+    volume: 1.0
+    pitch: 1.0
+    particle: TOTEM_OF_UNDYING
+    particle-count: 40
+    animation: true
+  # Resep crafting diatur di recipe.yml
+
+elimination:
+  enabled: true
+  ban-on-zero-hearts: true            # true = pemain ditolak login saat heart 0 (ban milik plugin)
+                                      # false = pemain hanya dijadikan spectator
+  ban-reason: "&cKamu telah kehilangan seluruh heart!\n&7Minta admin untuk me-revive kamu."
+
+revive:
+  enabled: true
+  hearts-on-revive: 1
+  gamemode: SURVIVAL                  # mode game bila pemain sedang online dalam spectator
+
+leaderboard:
+  size: 10
+  hide-eliminated: false
+
+hud:
+  enabled: true
+  update-interval: 20                 # tick; HUD juga langsung diperbarui saat heart berubah (0 = hanya lewat event)
+  critical-threshold: 2               # heart <= angka ini = status "Kritis"
+  lines:                              # baris pertama = judul. Placeholder: %player_name% %heart_current% %heart_max% %heart_status%
+    - "&6&lHEART LIFESTEAL"
+    - "&fPemain: &e%player_name%"
+    - "&c❤ Heart: &f%heart_current%/%heart_max%"
+    - "&aStatus: &f%heart_status%"
+
+database:
+  type: SQLITE                        # SQLITE (default) atau MYSQL
+  sqlite-file: "data.db"              # disimpan di folder plugin
+  mysql:                              # dipakai bila type: MYSQL (satu server saja; data di-cache di memori)
+    host: "localhost"
+    port: 3306
+    database: "heartlifesteal"
+    username: "root"
+    password: ""
+    use-ssl: false
+    extra-params: ""

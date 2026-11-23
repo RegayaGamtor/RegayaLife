@@ -1,0 +1,22 @@
+# ======================================================================
+#  Resep crafting Relic of Life (3x3)
+#  Jalankan /heart reload setelah mengubah file ini.
+# ======================================================================
+
+enabled: true          # false = resep dinonaktifkan
+auto-discover: true    # true = resep otomatis muncul di recipe book pemain
+result-amount: 1       # jumlah Relic of Life hasil crafting
+
+# Susunan pada crafting table: 1-3 baris, maksimal 3 karakter per baris.
+# Spasi = kotak kosong. Setiap huruf didefinisikan di 'ingredients'.
+shape:
+  - "BDB"
+  - "DSD"
+  - "BDB"
+
+# Isi dengan nama Material Bukkit (contoh: DIAMOND_BLOCK, GOLD_INGOT).
+# Nilai khusus BLOOD = item Blood asli dari plugin ini (REDSTONE biasa tidak diterima).
+ingredients:
+  B: BLOOD
+  D: DIAMOND_BLOCK
+  S: NETHER_STAR
